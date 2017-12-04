@@ -1,0 +1,60 @@
+<div class="jumbotron text-center">
+  <h1>Burger Galore</h1>
+  <p>Enter a Burger..and we will see what happens!</p> 
+  <form class="insert-burger">
+      <div class="form-group">
+        <label for="brgr">Burger:</label>
+        <input type="text" id="brgr" name="burgerName">
+       </div>
+      <button type="submit" id="btnSubmit" class="btn btn-primary">Add Burger</button>
+  </form>
+</div>
+
+<div class="container">
+  <div class="row">
+     <div class="col-sm-12 col-lg-4" id="1_col">
+    <img src="assets/img/hb_1.jpg" class="rounded-circle" alt="Hamburger"> 
+      <h3>Existing Burgers</h3>
+        <ul>
+          {{#each burgers}}
+              <li>{{burger_name}}</li>
+          {{/each}}
+        </ul>
+
+    </div>
+    <div class="col-sm-12 col-lg-4" id="2_col">
+    <img src="assets/img/hb_2.jpg" class="rounded-circle" alt="Hamburger"> 
+      <h3>Burger to Eat</h3>
+    </div>
+    <div class="col-sm-12 col-lg-4" id="3_col">
+    <img src="assets/img/hb_3.jpg" class="rounded-circle" alt="Hamburger"> 
+      <h3>Burger Just Eaten</h3> 
+    </div>
+  </div>
+
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Burger Up!!</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+   		You just entered a new Burger..Hungry!!
+      </div>
+      <div class="modal-footer">
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+</div> 

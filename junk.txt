@@ -1,0 +1,12 @@
+
+
+			{{!-- console.log(newBurger);
+			$.ajax("/api/burger",{
+				type: "POST",
+				data: newBurger
+			}).then(
+				frunction(){
+					console.log("insertd a new burger");
+					location.reload();
+
+			}) // end thenn --}}

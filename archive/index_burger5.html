@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8"> 
+<title>My Burger Application</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> 
+<style>
+.rounded-circle{
+ width:150px;
+}
+.jumbotron{
+//background-image: url("assets/images/hb_1.png");
+}
+</style>
+<script>
+$(document).ready(function(){
+	var addCntr = 0;
+	var remainder = 0;
+	var route   = "";
+	
+
+$("#btnSubmit").on("click",function(){
+if (addCntr >= 3){
+addCntr = 1;
+} else {
+addCntr++;
+}
+route = "#"+addCntr+"_col";
+
+$(route).append("hello<br>");
+//alert(addCntr);
+})
+
+})// end 
+</script>
+</head>
+<body>
+<!--
+<div class="jumbotron text-center">
+<img src="assets/images/hb_1.png">
+  <h1>Burger Galore</h1>
+  <p>Enter a Burger..and we will see what happens!</p> 
+<input type="button" id="btnSubmit">
+<!-- Button trigger modal --
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+  Launch demo modal
+</button>
+</div>
+		<div class="card" style="width: 20rem;">
+		  <img class="card-img-top" src="assets/images/hb_1.png" alt="Card image cap" style="width: 50%">
+		  <div class="card-body">
+		    <h4 class="card-title">Burger Galore</h4>
+		    <p class="card-text">Enter a Burger..and lets see what what happens.</p>
+		    <a href="#" class="btn btn-primary">Go somewhere</a>
+				<input type="button" id="btnSubmit">
+				<!-- Button trigger modal -->
+				<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+		  </div>
+		</div>
+-->
+<div class="container">
+  <div class="row">
+	<div class="card" style="width: 20rem;">
+	  <img class="card-img-top" src="..." alt="Card image cap">
+	  <div class="card-body">
+	    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+	  </div>
+	</div>
+
+     <div class="col-sm-12 col-lg-4" id="1_col">
+    <img src="assets/images/hb_1.png" class="rounded-circle" alt="Hamburger"> 
+      <h3>Column 1</h3>
+      <p>Lorem ipsum dolor..</p>
+      <p>Ut enim ad..</p>
+    </div>
+    <div class="col-sm-12 col-lg-4" id="2_col">
+    <img src="assets/images/hb_2.png" class="rounded-circle" alt="Hamburger"> 
+      <h3>Column 2</h3>
+      <p>Lorem ipsum dolor..</p>
+      <p>Ut enim ad..</p>
+    </div>
+    <div class="col-sm-12 col-lg-4" id="3_col">
+    <img src="assets/images/hb_3.jpg" class="rounded-circle" alt="Hamburger"> 
+      <h3>Column 3</h3> 
+      <p>Lorem ipsum dolor..</p>
+      <p>Ut enim ad..</p>
+    </div>
+  </div>
+
+
+
+
+		<!-- Modal -->
+		<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		  <div class="modal-dialog" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <h5 class="modal-title" id="exampleModalLabel">Burger Up!!</h5>
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		          <span aria-hidden="true">&times;</span>
+		        </button>
+		      </div>
+		      <div class="modal-body">
+		   		You just entered a new Burger..Hungry!!
+		      </div>
+		      <div class="modal-footer">
+		      <!--
+		        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+		        <button type="button" class="btn btn-primary">Save changes</button>
+		      -->
+		      </div>
+		    </div>
+		  </div>
+		</div>
+
+
+
+</div> 
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+</body>
+</html>
