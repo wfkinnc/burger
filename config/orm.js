@@ -16,17 +16,17 @@ function addQuestionMarks(val){
 
 }// end function
 
-function addObjToSql(ob){
+function addObjToSql(obj){
   var arr = [];
 
   for (var key in obj){
 
-    var val = ob[key];
-    if (Object.hasOwnProperty.call(ob,key)){
-       if (typeof val === "string" && value.indexOf(" ")>= 0){
+    var val = obj[key];
+    if (Object.hasOwnProperty.call(obj,key)){
+       if (typeof val === "string" && val.indexOf(" ")>= 0){
           val = "'" + val + "'";
        }// end if 
-       arr.push(key + "=" + value);
+       arr.push(key + "=" + val);
     }// end if(object)
   }// end for
   return arr.toString();
@@ -34,9 +34,11 @@ function addObjToSql(ob){
 
 
 var orm = {
-    selectAll: function( colToSearch, tableInput, cb) {
+    selectAll: function( tableToGet, colToGet, cb) {
       var queryString = "SELECT ?? FROM ??";
-      connection.query(queryString, [ tableInput, colToSearch], function(err, result) {
+      //this cb is from burger.js and pass back the cb on line 56
+      //this fcn is part/parcel of the connect.query.
+      connection.query(queryString, [ colToGet, tableToGet], function(err, result) {
         console.log("thsi sql " + this.sql)
         if (err) {
           throw err;
@@ -45,28 +47,25 @@ var orm = {
       });
     },
   insertOne: function(table, fields, val,cb) {
-    //this cb is from burger.js and pass back the cb on line 56
     var queryString = "INSERT INTO ?? ( ?? ) VALUES (?)";
+    //this cb is from burger.js and pass back the cb on line 56
     //this fcn is part/parcel of the connect.query.
     connection.query(queryString, [table, fields, val], function(err, result) {
       console.log("this is insert sql " + this.sql)
       if (err) {
         throw err;
       }
-        console.log("from line 56 " + result.insertId);
         cb(result);
       });
-    
   },
-  updateOne: function(tableOneCol, tableTwoForeignKey, table, tableTwo) {
+  updateOne: function(table, objColVals, condition,cb) {
     var queryString = "UPDATE " + table;
       queryString += " SET " ;
       queryString += addObjToSql(objColVals);
       queryString += " WHERE ";
       queryString += condition;
-
-      console.log(queryString);
-      
+    //this cb is from burger.js and pass back the cb on line 56
+    //this fcn is part/parcel of the connect.query.
       connection.query(queryString,  function(err, result) {
         console.log("this is update sql " + this.sql)
         if (err){

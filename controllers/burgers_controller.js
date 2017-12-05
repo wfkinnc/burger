@@ -14,7 +14,7 @@ router.get("/", function(req, res) {
     var brgrObject = {
       burgers: data
     };
-    console.log(brgrObject);
+    // calls the index page and sends the object
     res.render("index", brgrObject);
   });
 });
@@ -23,14 +23,10 @@ router.post("/api/burger", function(req, res) {
 //--------------------------------------------
 // inserts the data..
 //--------------------------------------------
-console.log(" getting insert route line 26, burger contorler");
    burger.insertOne(
        ["burger_name","devoured"],
        [req.body.burger_name,false], 
        function(result){
-        console.log(" from burger contoller " + req.body.burger_name);
-        console.log("from burger controller " + JSON.stringify(result));
-        console.log("finished inserting form line 31 at burger controller " + result.insertId);
         result["burger_name"] = req.body.burger_name;
         // need to send a response back to the calling ajax..
         // this res goes back to the ajax call in the main.handler..
@@ -44,24 +40,28 @@ router.put("/api/burger/:id", function(req, res) {
 //--------------------------------------------
 // Update the data based upon the Burger ID.
 //--------------------------------------------
+
   var condition = "id = " + req.params.id; 
 
-  burger.updateOne  
+  burger.updateOne({
+      devoured: req.body.devoured,
+      date: "now()"
 
-  //updateOne: function(tableOneCol, tableTwoForeignKey, tableOne, tableTwo) {
- // res.status(400).json("OK");
-  // console.log("condition", condition);
+  }, condition, function(result){
+        // need to send a response back to the calling ajax..
+        // this res goes back to the ajax call in the main.handler..
 
-  // cat.update({
-  //   sleepy: req.body.sleepy
-  // }, condition, function(result) {
-  //   if (result.changedRows == 0) {
-  //     // If no rows were changed, then the ID must not exist, so 404
-  //     return res.status(404).end();
-  //   } else {
-  //     res.status(200).end();
-  //   }
-  // });
+    if (result.changedRow == 0){
+
+        return res.status(404).end();
+
+      } else {
+
+        return res.status(200).json(result).end();
+      }// end if
+
+  })// end updateOne
+
 });
 
 // Export routes for server.js to use.

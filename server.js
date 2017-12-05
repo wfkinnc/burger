@@ -27,14 +27,9 @@ app.set("view engine", "handlebars");
 
 // require the connection page for mysql
 
-//var conn = require("config/connection.js")
 // Routes
 
 var routes = require("./controllers/burgers_controller.js")
-
-// app.get("/", function(req, res) {
-//     res.render("index");
-//   });
 
 // this is the index router..and uses the routes file which is the burgers_controller..
 app.use("/", routes);
