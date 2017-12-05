@@ -1,0 +1,11 @@
+mysql://ga7vodjmw544tt47:cs6xmrmp8clyl5i4@k3xio06abqa902qt.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/pmeqpx366extsxdh
+
+
+You can use your connection information to connect manually through a client such as HeidiSQL to administer your database.
+
+Property	Value	Action
+Host	k3xio06abqa902qt.cbetxkdyhwsb.us-east-1.rds.amazonaws.com	
+Username	ga7vodjmw544tt47	
+Password	cs6xmrmp8clyl5i4	
+Reset
+Port	3306
