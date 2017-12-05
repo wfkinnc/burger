@@ -10,7 +10,9 @@ var mysql           = require("mysql");
 
 //instantiating express
 var app     = express();
-var port    = 3000;
+//var port    = 3000;
+var PORT = process.env.PORT || 3000;
+
 
 // sets a static content to public directory
 app.use(express.static("public"));
